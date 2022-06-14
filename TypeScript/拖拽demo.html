@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo {
+            background-color: orange;
+            width: 100px;
+            height: 100px;
+        }
+
+        #demo1 {
+            background-color: pink;
+            width: 400px;
+            height: 400px;
+            position: relative;
+            left: 400px;
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo" draggable="true">
+        测试拖拽
+    </div>
+    <div id="demo1">
+        将测试拖进该容器中
+    </div>
+    <script>
+        let obj = document.getElementById("demo");
+        let obj1 = document.getElementById("demo1");
+        // ================= 拖拽元素 ================
+        //开始拖动事件
+        obj.ondragstart = e =>{
+            console.log('元素开始被拖动');
+        }
+        //目标开始拖拽中的事件
+        obj.ondrag = e => {
+            console.log('元素拖拽过程中');
+        }
+        //元素结束拖拽
+        obj.ondragend = e =>{
+            console.log('元素结束拖拽');
+        }
+        // ================== 接收元素 ===================
+        obj1.ondragenter = e =>{
+            console.log('检测到目标进入容器');
+        }
+        obj1.ondragover  = e =>{
+            console.log('检测到目标在容器上移动');
+            e.preventDefault();
+        }
+        obj1.ondragleave = e =>{
+            console.log('检测到目标离开容器');
+        }
+        //目标在容器内释放的事件
+        obj1.ondrop = e =>{
+            // debugger
+            console.log('目标在容器内释放');
+        }
+
+    </script>
+</body>
+
+</html>
