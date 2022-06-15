@@ -22,7 +22,7 @@ x = ['hello', 10];
 console.log(x[0].substring(1)); // => 'h'
 //访问越界的元素，会用联合类型来替代（typescript 2.7后，元祖长度被固定，访问元祖越界元素会报错）
 // x[3] = 10
-//枚举 （enum类型对js标准数据类型的一个补充，像c#c#，是用枚举可以对一组数值赋予友好的名字）
+//枚举 （enum类型对js标准数据类型的一个补充，像c#，是用枚举可以对一组数值赋予友好的名字）
 var Color;
 (function (Color) {
     Color[Color["red"] = 0] = "red";
@@ -67,3 +67,43 @@ let notSure2 = 4;
 let arr2 = [1, true, 'string'];
 arr2[1] = 100;
 console.log(arr2);
+//void 表示没有类型，当一个函数没有返回值的时候返回值，返回值类型为void
+function methods() {
+    console.log('这是一个没有返回值的函数');
+}
+methods();
+//null和undefined 默认情况下，null和undefined是所有类型的子变量可以把null和undefined赋值给number类型的变量
+let n = undefined;
+let n1 = null;
+//never表示永不存在的值的类型 never类型总是会抛出异常或根本就不会有返回值的函数表达式或箭头函数表达式的返回值类型；变量也可以是never类型，被永不为真的类型保护所约束时
+//never是任何类型的子类型，可以赋值给任何类型，never没有子类型any不可以赋值给never
+//返回never的函数必须存在无法抵达的终点
+function error(message) {
+    throw new Error(message);
+}
+//推断返回值的类型为never
+function fail() {
+    return error('Something failed');
+}
+//返回never函数必须存在无法到达的终点
+function infiniteLoop() {
+    while (true) {
+    }
+}
+Object;
+/* 表示非原始类型，除number，string,boolean,symbol,null或undefined之外的类型 */
+/* 类型断言 */
+/*
+    判断当前值的类型
+*/
+/*
+    类型断言两种语法
+*/
+let someValue = 'this is a string';
+let strLength = someValue.length;
+/*
+    as语法
+*/
+let someValue1 = "this is a string";
+let strLength1 = someValue1.length;
+console.log(strLength1);
