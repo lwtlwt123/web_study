@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</body>
+</html>
+<script>
+    let games = ['王者荣耀', '刺激战场', '第五人格', '火影忍者', '猫和老鼠'];
+    function play(...args) {
+        console.log(args);
+    }
+    // 1 / ...games把games里面所有的值都变成了一个参数
+    play(...games)
+    //等价于 play('王者荣耀', '刺激战场,'第五人格','火影忍者','猫和老鼠)
+
+    /* 
+    1.合并数组(两个不同的数组合二为一)
+    2.克隆数组（深拷贝）
+    3.伪数组转真数组
+    */
+
+    // 1.合并数组
+    let txGame = ['王者荣耀','刺激战场'];
+    let wyGame = ['阴阳师','第五人格'];
+    let allGames = [...txGame,...wyGame]
+
+    console.log(allGames);
+
+    // 2.克隆数组（深拷贝）
+    let oraginArr = [1,2,3,4,5] //txy001
+    let copyArr = [...oraginArr]  
+    // console.log(oraginArr);   //txy002 --> txy001所有的数组
+    console.log(copyArr);
+    let a = oraginArr
+    // a[1] = 1
+    copyArr[1] = 1
+    console.log(a);
+    console.log(oraginArr);
+
+    // 3.伪数组转真数组
+    let items = document.getElementsByClassName('item');
+    let itemsArr = [...items]
+    console.log(itemsArr);
+    // console.log(items);
+    
+
+</script>

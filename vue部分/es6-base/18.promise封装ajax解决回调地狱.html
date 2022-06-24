@@ -1,0 +1,77 @@
+<script>
+    /* 
+    回调地狱？？
+        必须等上一个异步结束之后，再进行下一个异步的开始请求
+        请求永远在第一层
+    */
+    //    promise 封装异步操作（定时器、ajax）
+    //    如果在promise内部返回临沂一个promise对象，则会将当前的promise返回给下一个then去处理
+    const ajaxPromise = new Promise((reslove, reject) => {
+        // 1 创建XMLHttpRequest
+        let xhr = new XMLHttpRequest()
+        // 2 打开链接
+        xhr.open('GET', 'https://api.apiopen.top/getWangYiNews')
+        // 3 发送请求
+        xhr.send()
+        // 4 发送请求的时候，状态码1-2-3-4
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) { //请求已经返回的结果
+                /* 
+                4xx 前端报错 404 401&403 没有访问权限
+                3xx 需要重定向
+                2xx 代表成功
+                5xx 代表服务器端出现问题（找后端）
+                */
+                if (xhr.status == 200) {
+                    reslove(xhr.response)
+                } else {
+                    reject(`当请求失败，error code：${xhr.status},请求失败`)
+                }
+
+            }
+        }
+    })
+
+    ajaxPromise.then(res => { // res是1.txt的返回结果
+        // 返回了一个promise的对象
+        // 如果在promise内部返回临沂一个promise对象，则会将当前的promise返回给下一个then去处理
+        return new Promise((reslove, reject) => {
+            let xhr = new XMLHttpRequest()
+            xhr.open('GET', 'https://api.apiopen.top/getWangYiNews')
+            xhr.send()
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status == 200) {
+                        // 第二次请求成功的回调函数
+                        // 
+                        reslove([res,xhr.response])
+                    } 
+
+                }
+            }
+        })
+    })
+    .then(resArr => {
+        return new Promise((reslove,reject) =>{
+            let xhr = new XMLHttpRequest()
+            xhr.open('GET', 'https://api.apiopen.top/getWangYiNews')
+            xhr.send()
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status == 200) {
+                        // 第三次请求成功的回调函数
+                        // 
+                        let tmp = resArr
+                        tmp.push(xhr.response)
+                        reslove(tmp)
+                    } 
+
+                }
+            }
+        })
+    })
+    .then(finalRes =>{
+        console.log(finalRes);
+    })
+
+</script>

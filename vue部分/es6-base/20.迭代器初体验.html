@@ -1,0 +1,27 @@
+<script>
+    let games = ['王者荣耀','刺激战场','哈利波特','第五人格']
+
+    /* 
+    1.
+    */
+
+//    获取数组的迭代器
+    let iterator = games[Symbol.iterator]()
+    // 指向了王者荣耀
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+
+    console.log(games);
+
+    for (const value of games) {
+        console.log(value); //获取值
+    }
+
+    /* 
+        什么是迭代器？？？
+    */
+
+</script>

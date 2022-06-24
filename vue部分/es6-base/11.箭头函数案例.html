@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 600px;
+            border: 1px solid rgb(0, 0, 0);
+            margin: 0px auto;
+            padding-top: 20px;
+            overflow: hidden;
+        }
+
+        .item {
+            width: 50px;
+            height: 150px;
+            border: 1px solid rgb(0, 0, 0);
+            margin-right: 30px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>改变盒子颜色</h1>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+    <script>
+        let items = document.getElementsByClassName('item');
+        for (let i = 0; i < items.length; i++) {
+            items[i].onclick = function () {
+                // 传统解决方式：在外部定义_this || that
+                // _this = this
+                // setTimeout(function () {
+                //     _this.style.backgroundColor = 'red'
+                // }, 1000)
+                // 使用箭头函数的特性可以很好的解决此现象 没有属于自己的this this指向上一级
+               setTimeout(() => {
+                   this.style.backgroundColor = 'pink'
+               }, 1000); 
+            }
+
+        }
+    </script>
+</body>
+
+</html>

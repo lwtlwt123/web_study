@@ -1,0 +1,98 @@
+<script>
+    // function Phone(_brand,_type,_price,_color){
+    //     this.brand = _brand //手机品牌
+    //     this.type = _type //手机型号
+    //     this.price = _price //手机售价
+    //     this.color = _color //手机颜色
+    //     this.call = function(){
+    //         console.log(`正在使用${this.brand}的${this.type}手机打电话`); 
+    //     }
+    //     this.send = function(){
+    //         console.log(`正在使用$ {this.brand}的${this.type}手机发送短信`);
+    //     }
+    // }
+    // const phone = new Phone('华为','P5e Pro ',6499,'雪域白')
+    //phone.cal1()
+    // phone.sendMsg()
+
+
+
+
+    class Phone {
+        // 构造器
+        constructor(_brand, _type, _price, _color) {
+            // 属性
+            this.brand = _brand
+            this.type = _type
+            this.price = _price
+            this.color = _color
+        }
+        // 方法
+        call() {
+            console.log(`正在使用${this.brand}的${this.type}手机打电话`);
+        }
+        sendMsg() {
+            console.log(`正在使用${this.brand}的${this.type}手机发送短信`);
+        }
+    }
+
+    let phone = new Phone('华为', 'P5e Pro ', 6499, '雪域白')
+    phone.call()
+    phone.sendMsg()
+
+    // 智能手机
+    class SmartPhone extends Phone{
+        constructor(_brand, _type, _price, _color,_xs){
+            // 属性
+            // super()调用父类的构造器
+            super(_brand, _type, _price, _color,_xs)
+            this.xs = _xs
+        }
+        takePhoto(){
+            console.log(`正在通过${this.xs}像素镜头拍照`);
+        }
+        downloadApp(){
+            console.log('正在下载App...');
+        }
+    }
+
+    // 品牌手机
+    class huaweiPhone extends SmartPhone{
+        constructor(_brand, _type, _price, _color,_xs,_camer){
+            super(_brand, _type, _price, _color,_xs)
+            this.camer=_camer;
+        }
+        // 方法重写
+        takePhoto(){
+            console.log(`正在通过定制的${this.camer}在拍摄`);
+        }
+        downloadApp(){
+            console.log('正在华为应用商店下载App...');
+        }
+    }
+    let huawei = new huaweiPhone('华为', 'P5e Pro ', 6499, '雪域白',2000,'得');
+    huawei.takePhoto();
+    huawei.downloadApp();
+    
+
+
+
+    /*
+        + 类和对象
+            类 - 类是抽象的东西
+            对象-对象是具体的东西,只有类才能创造出来对象
+            ***类是对象的抽象化,对象是类的实例化
+            属性->特征
+            方法->行为
+        1.封装
+        2.继承
+        3.多态
+
+        1、普通手机（打电话、发短信。。。）
+        2、智能手机（打电话、发短信【继承自普通手机】，上网、打游戏、下载App）
+        3、品牌手机（打电话、发短信【继承自普通手机】，上网、打游戏、下载App，ioS系统，鸿蒙，莱卡摄像头)
+
+        
+
+    */
+</script>

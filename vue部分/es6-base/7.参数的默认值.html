@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //玩游戏（昵称，游戏等级，技能）
+        function playGame(uname, level = 1, jineng ='翻箱子'){
+         console.log(`亲爱的${uname} 玩家你好，你当前等级为${level}级，您当前的技能是${jineng}`);          
+        } 
+        /* 
+         +两个默认玩家
+         +重度氪金玩家 
+         */      
+        playGame('jack');
+        playGame('angela');
+        playGame('henry',10,'香水');
+
+        function info(username,level = 100,jineng = '火龙炎弹'){
+            console.log(`亲爱的${username} 玩家你好，你当前等级为${level}级，您当前的技能是${jineng}`);
+        }
+        info('小黑','120')
+    </script>
+</body>
+
+</html>

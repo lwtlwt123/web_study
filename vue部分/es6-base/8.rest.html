@@ -1,0 +1,26 @@
+<script>
+    function playGame1(){
+        // 而是arguments的集合
+        console.log(Array.isArray(arguments));
+        console.log(arguments);
+    }
+
+    function playGame2(...args){
+        // 通过rest参数，拿到的就是原生的数组类型
+        console.log(Array.isArray(args));
+        console.log(args);
+    }
+
+    function playGame3(nickname,...args){
+        console.log(nickname);
+        console.log(args);
+    }
+
+    playGame1('anglea',1,'翻箱子')
+    playGame2('jack',1,'翻箱子')
+    playGame3('herry',5,'翻箱子','老用户')
+
+    // arguments拿到的是arguments的集合直接在方法内部调用
+    // rest拿到的是原生数组需要在函数的参数上通过...rest
+
+</script>

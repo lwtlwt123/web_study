@@ -1,0 +1,38 @@
+<script>
+    // promise 封装异步操作 （定时器、ajax）
+    const ajaxPromise = new Promise((reslove,reject) => {
+        // 1 创建XMLHttpRequest
+        let xhr = new XMLHttpRequest()
+        // 2 打开链接
+        xhr.open('GET','https://api.apiopen.top/getWangYiNews')
+        // 3 发送请求
+        xhr.send()
+        // 4 发送请求的时候，状态码1-2-3-4
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){ //请求已经返回的结果
+                /* 
+                4xx 前端报错 404 401&403 没有访问权限
+                3xx 需要重定向
+                2xx 代表成功
+                5xx 代表服务器端出现问题（找后端）
+                */
+               if(xhr.status == 200){
+                   reslove(xhr.response)
+               }else{
+                   reject(`当请求失败，error code：${xhr.status},请求失败`)
+               }
+
+            }
+        }
+    })
+
+    ajaxPromise
+    .then(res => {
+        console.log('这是then的回调函数');
+        console.log(res);
+    })
+    .catch(err => {
+        console.log('这是catch的回调函数');
+        console.log(err);
+    })
+</script>

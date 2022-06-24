@@ -1,0 +1,39 @@
+<script>
+    const englishs = ['a', 'b', 'c', 'd', 'a', 'e', 'a', 'b', 'b', 'C'];
+    let set = new Set(englishs)
+    console.log(set);
+    let setArr = [...set]
+    console.log(setArr);
+    
+    //使用set集合来完成数组的去重
+   /* 
+    1. size返回集合的元素个数;
+    2. add增加一个新元素，返回当前集合:
+    3. delete删除元素, 返回 boolean值;
+    4. has检测集合中是否包含某个元素，返回 boolean值:
+    5. clear清空集合，返回undefined;
+     */
+    let emptySet = new Set()
+    console.log(`当前emptySet的长度为: ${ emptySet.size }`);// 添加set元素
+    let result = emptySet.add('a')
+    console.log(result);
+    console.log(`当前emptyset的长度为: ${emptySet.size}`);
+    // 添加set元素
+    emptySet.add('a')
+    emptySet.add('c')
+    emptySet.add('b')
+
+    console.log(`当前emptySet的长度为：${emptySet.size}`);
+
+    // 删除元素
+    let isDel = emptySet.delete('b');
+    console.log(isDel);
+    console.log(emptySet);
+    console.log(`当前emptySet的长度为：${emptySet.size}`);
+
+    let isHas = emptySet.has('b')
+    console.log(isHas);
+    
+
+
+</script>

@@ -1,0 +1,52 @@
+<script>
+
+    //构造函数 【创建对象的，一般来说构造函数都是大写字母开头的】
+    function Star(_name,_gender,_area){
+        this.username = _name
+        this.gender = _gender
+        this.area = _area
+        // 每个通过Star new出来的对象，都会重新创建一个sing方法，浪费内存
+        // this.sing = function(){
+        //     console.log(`${this.username}在唱歌`);
+        // }
+    }
+
+    // 在Star的原型链下面添加了一个sing方法
+    //  结果:所有通过star创建出来的变量，都有了sing方法，而且是共享sing方法
+    Star.prototype.sing = function(){
+        console. log(`${this.username}在唱歌`);
+    }
+
+
+    const jay =new Star('周杰伦','男','中国台湾')
+    const xzq= new Star('薛之谦','男','中国内地')
+    console.log(jay);
+    console.log(xzq);
+
+    // 创建一个手机的构造函数，所有手机都可以打电话，发短信
+
+    function Phone(_brand,_price){
+        this.brand = _brand
+        this.price = _price
+    }
+    Phone.prototype.call = function(){
+        console.log(`${this.brand}在打电话`);
+    }
+
+    Phone.prototype.sendMsg = function(){
+        console.log(`${this.brand}发消息`);
+    }
+    Phone.prototype.color = '白色'
+
+    //Object下面找 所有对象的原型最后指向object  
+    const huawei = new Phone('华为',299)
+    const mi = new Phone('小米',1999)
+    console.log(huawei.brand);
+    huawei.call()
+    huawei.sendMsg()
+    mi.call()
+    mi.sendMsg()
+    console.log(huawei.color);
+    console.log(mi.color);
+
+</script>

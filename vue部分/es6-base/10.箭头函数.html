@@ -1,0 +1,55 @@
+<script>
+    /* 
+    思考？函数有几种类型
+    回答 -
+        + 无参函数
+        + 有参函数
+            - 单个参数
+            - 多个参数
+        + 构造函数
+    */
+    function show() {
+        console.log('这是无参函数的输出结果');
+    }
+   
+    function showName(_name) {
+        console.log(`这是单个参数函数的输出结果_name = ${_name}`);
+    }
+    function showAddResult(_num1, _num2) {
+        console.log(`两数相加的结果是${_num1 + _num2}`);
+    }
+    show()
+    showName('web前端')
+    showAddResult(10, 20)
+
+    // 箭头函数改写上面三个传统函数
+    /*
+     () 代表的是参数
+     => 只是规定的写法
+     {
+         方法内部代码
+     }
+     ***当方法体内只有一行代码的时候，可以省略{},但是会隐式的加return，反之没有
+     ***当箭头函数的参数只有一个的时候,可以省略()
+     ***当箭头函数没有参数的时候,()是必须的
+     ***箭头函数没有属于自己的this
+    */
+
+   const show = () => '这是无参函数的输出结果'
+   console.log(show);
+//    const show = function(){
+//        return '这是无参函数的输出结果'
+//    }
+
+const showName = _name => `这是单个参数函数的输出结果,_name=${_name}`
+
+
+const showAddResult = (_num1,_num2) => `两数相加的结果是${_num1 + _num2}`
+
+const testFn = (_num1,_num2) => {
+    return `两数相减的结果是${_num1 - _num2}`
+}
+
+let subResult = testFn(20,10)
+console.log(subResult);
+</script>

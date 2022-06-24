@@ -1,0 +1,64 @@
+<script>
+    /* const one = function(){
+        setTimeout(() => {
+            console.log('one');
+            iterator.next()
+        },1000);
+    }
+
+    const two = function(){
+        setTimeout(() => {
+            console.log('two');
+            iterator.next()
+        }, 500);
+    }
+
+    const three = function(){
+        setTimeout(() => {
+            console.log('three');
+        }, 700);
+    }
+
+    function * gen(){
+        yield one()
+        yield two()
+        yield three()
+    }
+
+    let iterator = gen();
+    iterator.next()
+ */
+    const goHome = function(){
+        setTimeout(() => {
+            let result = '正在访问官网中，请稍后...'
+            // 返回第一个结果，并触发第二个
+            iterator.next(result)
+        }, 1000);
+    }
+    const goDownload = function(){
+        setTimeout(() => {
+            let result = '已经访问官方，下载游戏安装包...'
+            iterator.next(result)
+        }, 500);
+    }
+    const goInstall = function(){
+        setTimeout(() => {
+            let result = '已经安装游戏中'
+            iterator.next(result)
+        }, 700);
+    }
+    function * gen(){
+        // page的返回值是godownload
+        let page = yield goHome()
+        console.log(page);
+        // download是goinstall返回的
+        let download = yield goDownload()
+        console.log(download);
+        // install是最终done:true返回的
+        let install = yield goInstall()
+        console.log(install);
+    }
+
+    let iterator = gen()
+    iterator.next();
+</script>

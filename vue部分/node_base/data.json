@@ -1,0 +1,14 @@
+{
+    "meta":{
+        "status":200,
+        "msg":"请求成功"
+    },
+    "data":{
+        "list":[
+            {"song_name":"破茧","singer":"张韶涵"},
+            {"song_name":"七里香","singer":"周杰伦"},
+            {"song_name":"演员","singer":"薛之谦"},
+            {"song_name":"年少有为","singer":"李荣浩"}
+        ]
+    }
+}

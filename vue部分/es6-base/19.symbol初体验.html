@@ -1,0 +1,91 @@
+<script>
+    //创建一个Symbol类型
+    //通过函数方式创建的Symbol，用此方式创建出来的Symbol类型没有唯一性，即使给的是相同的名，也是不同的变量
+    let a = Symbol()
+    let b = Symbol('万和前端')
+    let c = Symbol('万和前端')
+    // console.log(b);
+    console.log(typeof a); 
+    console.log(typeof b);
+    console.log(typeof c); 
+    console.log(b == c);
+    console.log(' -------------');
+    // 通过对象函数的方式来创建symbol类型
+    //如果是通过对象函数的方式来创建Symbol，则该值具有唯一性
+    let one = Symbol.for('万和教育')
+    let two = Symbol.for('万和教育')
+    console.log(one);
+    console.log(two);
+    console.log(one == two);
+
+
+    console.log('----------------------');
+    let student = {
+        stuName:'王小明',
+        eat(){
+            console.log('正在吃饭');
+        },
+        sleep(){
+            console.log('正在睡觉');
+        },
+        study(){
+            console.log('正在学习前端');
+        }
+    }
+    /* student.eat = function(){
+        console.log('123');
+    } */
+    /* 
+    思考？
+        变量或者函数同名，后面的会把之前的定义覆盖掉
+    */
+
+//    Symbol方法
+    let methods = {
+        eat:Symbol(),
+        sleep:Symbol(),
+        study:Symbol()
+    }
+    student[methods.eat] = function(){
+        console.log('正在吃螺蛳粉');
+    }
+    student[methods.sleep] = function(){
+        console.log('正在通宵');
+    }
+    student[methods.study] = function(){
+        console.log('正在学习vue框架');
+    }
+    console.log(student);
+    student.eat();
+    student.sleep();
+    student.study();
+    student[methods.eat]();
+    student[methods.sleep]();
+    student[methods.study]();
+
+    console.log('------------------------');
+    const qqMusic = {
+        playerName:'QQ音乐',
+        // 定义的都是Symbol类型的方法
+        [Symbol('play')](){
+            console.log('正在播放音乐');
+        },
+        [Symbol('download')](){
+            console.log('正在下载歌曲');
+        },
+        [Symbol('download')](){
+            console.log('正在下载绿钻音质');
+        }
+    }
+    // 思考？拿到对象里面的所有key
+    // 答案？反射里面的oenkeys 静态方法 Reflect.ownkeys() 返回一个有目标对象自身属性键组成的数组
+    const keys = Reflect.ownKeys(qqMusic)
+    for (const index in keys) {
+       if(typeof keys[index] == 'symbol'){
+           qqMusic[keys[index]]()
+       }
+    }
+    console.log('-----调用绿钻下载--------');
+    qqMusic[Reflect.ownKeys(qqMusic)[3]]();
+
+</script>

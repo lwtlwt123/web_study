@@ -1,0 +1,58 @@
+<script>
+    const one = function () {
+        let xhr = new XMLHttpRequest()
+        xhr.open('GET', 'https://api.apiopen.top/getWangYiNews')
+        xhr.send()
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status == 200) {
+                    // console.log(xhr.response);
+                    console.log('1');
+                    // iterator.next();
+                }else{
+                    console.log(`当请求失败，error code：${xhr.status},请求失败`);
+                }
+            }
+        }
+        
+    }
+    const two = function () {
+        let xhr = new XMLHttpRequest()
+        xhr.open('GET', 'https://api.apiopen.top/getWangYiNews')
+        xhr.send()
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status == 200) {
+                    // console.log(xhr.response);
+                    console.log('2');
+                    // iterator.next();
+                }else{
+                    console.log(`当请求失败，error code：${xhr.status},请求失败`);
+                }
+            }
+        }
+       
+    }
+    const three = function () {
+        let xhr = new XMLHttpRequest()
+        xhr.open('GET', 'https://api.apiopen.top/getWangYiNews')
+        xhr.send()
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status == 200) {
+                    // console.log(xhr.response);
+                    console.log('3');
+                }else{
+                    console.log(`当请求失败，error code：${xhr.status},请求失败`);
+                }
+            }
+        }
+    }
+
+   
+         one();
+         two();
+       three();
+   
+    
+</script>

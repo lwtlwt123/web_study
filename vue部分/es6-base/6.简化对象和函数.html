@@ -1,0 +1,25 @@
+<script>
+    let uname = 'anglea'
+    let age = 18
+    // 1.传统写法（代码冗余）
+    // let student = {
+    //     uname:uname,
+    //     age:age,
+    //     play:function(){
+    //         console.log('正在玩游戏');
+    //     }
+    // }
+
+    // 2.使用es6完成简化函数和对象/*
+    // 1.当变量名和对象的key完全一致的时候，可以不用写: value
+    // 2.当对象中的函数声明的时候，可以省略: function关键字
+    let student = {
+        uname,
+        age,
+        play(){
+            console.log('正在玩游戏');
+        }
+    }
+    console.log(student);
+
+</script>

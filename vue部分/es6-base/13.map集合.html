@@ -1,0 +1,26 @@
+<script>
+    /* 
+    1. size返回 Map的元素个数;
+    2. set 增加一个新元素，返回当前 Map，如果添加相同的key，那么下面的代码会把上面的覆盖
+    3. get返回键名对象的键值,如果key不存在，返回的是undefined;
+    4. has检测Map中是否包含某个元素，返回boolean值;
+    5.clear 清空集合，返回undefined;
+    */
+
+   let map = new Map()
+   console.log(`当前map的长度为：${map.size}`);
+
+   map.set('a','anglea')
+   map.set('j','jack')
+
+   console.log(map);
+   console.log(`当前map的长度为：${map.size}`);
+
+   let aResult = map.get('a')
+   console.log(`aResult=${aResult}`);
+   let isHas = map.has('b')
+   console.log(isHas);
+   map.clear();
+   console.log(`当前map的长度为：${map.size}`);
+
+</script>

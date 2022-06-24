@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.声明的时候必须赋值
+        // 2.常量一般都是大写
+        // const USERNAME = 'angela';
+        // console.log(USERNAME);
+        // console.log('---------------------');
+        // USERNAME = 'jack';
+        // console.log(USERNAME);
+
+        /* 
+        数据类型
+            + 基础类型（值类型）  const
+            + 复杂类型（引用类型） 对象、数组
+         */
+        //  3.常量一般不能被修改
+        const SONG_LIST = ['晴天','破茧','演员'];
+        console.log(SONG_LIST);
+        console.log('--------------------');
+        // SONG_LIST = ['晴天','淋雨一直走','演员'];
+
+        SONG_LIST[1] = '淋雨一直走'
+        console.log(SONG_LIST);
+        const STUDENT = {
+            uname:'小明',
+            age:18
+        }
+        console.log(STUDENT);
+
+        //  STUDENT = {
+        //     uname:'小红',
+        //     age:17
+        // }
+
+        STUDENT.uname = '小红';
+        STUDENT.age = 17
+        console.log(STUDENT);
+    </script>
+</body>
+</html>

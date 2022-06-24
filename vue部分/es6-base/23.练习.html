@@ -1,0 +1,63 @@
+<script>
+    const one = function () {
+        let xhr = new XMLHttpRequest()
+        xhr.open('GET', 'https://api.apiopen.top/getWangYiNews')
+        xhr.send()
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status == 200) {
+                    console.log(xhr.response);
+                    console.log('1');
+                   
+                }else{
+                    console.log(`当请求失败，error code：${xhr.status},请求失败`);
+                }
+            }
+            iterator.next();
+        }
+        
+    }
+    const two = function () {
+        let xhr = new XMLHttpRequest()
+        xhr.open('GET', 'https://api.apiopen.top/getWangYiNews')
+        xhr.send()
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status == 200) {
+                    console.log(xhr.response);
+                    console.log('2');
+                   
+                }else{
+                    console.log(`当请求失败，error code：${xhr.status},请求失败`);
+                }
+            }
+             iterator.next();
+        }
+       
+    }
+    const three = function () {
+        let xhr = new XMLHttpRequest()
+        xhr.open('GET', 'https://api.apiopen.top/getWangYiNews')
+        xhr.send()
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status == 200) {
+                    console.log(xhr.response);
+                    console.log('3');
+                }else{
+                    console.log(`当请求失败，error code：${xhr.status},请求失败`);
+                }
+            }
+        }
+    }
+
+    function * gen(){
+       let one1 = yield one();
+       let two1 = yield two();
+       let three1 = yield three();
+    }
+
+    let iterator = gen();
+    iterator.next();
+    
+</script>

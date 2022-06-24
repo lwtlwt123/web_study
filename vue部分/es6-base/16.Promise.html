@@ -1,0 +1,53 @@
+<script>
+   /*  
+   Promise: 非常强大的异步编程的新解决方案
+   异步
+         + ajax 
+         + 定时器
+         + 读取文件【node.js fs模块...】
+         + ...
+        不好控制执行的先后顺序
+    ajax执行时间ms
+        1.先拿到用户的编号10min
+        2.根据用户的编号，查询用户购买的商品数据70ms
+    同步
+    转成同步的形式 -> 而是等上一个异步成功结束之后，再走下一个异步代码
+    
+    Promise 是 E编s6引入的异步程的新解决方案。
+    语法上 Promise 是一个构造函数，用来封装异步操作 并可以获取成功
+
+    1.Promise 构造函数：Promise(excutor) {}:
+    2.Promise.prototype.then 方法：---成功的回调函数
+    3.Promise.prototype.catch 方法：---失败的回调函数
+
+    */
+//    let promise = new Promise(callback(reslove,reject){})
+    let promise = new Promise((reslove,reject) => {
+        // reslove 成功的回调函数
+        // reject  失败的回调函数
+        setTimeout(() => {
+            // 模拟的是接口请求成功的结果
+            // let successResult = '已经拿到成功返回的数据'
+            // reslove(successResult)
+            // 模拟失败的结果
+        }, 2000);
+    })
+
+    // 调用promise
+
+    // promise.then(successcallback(result),errorcallback(error))
+    // promise.then().catch() //同时获取成功和失败
+    // promise.then //只处理成功的结果
+    // promise.catch() //只处理失败的结果
+
+    // promise.then(res => {
+    //     console.log(`成功的返回的结果是：${res}`);
+    // },err => {
+    //     console.log(`请求失败,失败原因：${err}`);
+    // })
+
+    promise.then(res => {
+        console.log(`成功的返回的结果是：${res}`);
+    }).catch(err)
+   let promise
+</script>

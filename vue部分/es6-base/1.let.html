@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let</title>
+</head>
+
+<body>
+
+    <script>
+        /*  let 特性：
+     1.不允许重复声明
+     2.块级作用域
+     3.不存在变量提升
+     4.不影响作用域链
+*/
+        
+        // var username = 'angela'
+        // var username = 'jack'
+        // console.log(username);
+        // 1.不允许重复声明；
+        // let username = 'angela'
+        // let username = 'jack'
+        // console.log(username);
+
+        // 2.块儿级作用域（局部变量）
+        // if(true){
+        //     var result = 100 //全局变量
+        // }
+        // console.log(result);
+
+        // {
+        //     let result = 100
+        //     console.log('块内使用result'+result);
+        // }
+        // console.log(result);
+        // 3.不存在变量提升
+        // console.log(username);
+        // var username = 'angela'
+
+        // console.log(username);
+        // let username = 'angela'
+
+        // 不影响作用域链
+        {
+            var num = 100;
+            function show() {
+                console.log(num);
+            }
+            show()
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

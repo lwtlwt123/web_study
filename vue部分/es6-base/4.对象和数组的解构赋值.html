@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let song_list = ['七里香', '淋雨一直走', '安静了'];//将三首歌分别赋值给三个变量
+        // let song_one = song_list[0]
+        // let song_two = song_list[1]
+        // let song_three = song_list[2]
+        // 数据解构根据下标进行解构
+        let [song_one, song_two, song_three] = song_list;
+        console.log(song_one, song_two, song_three);
+
+        let ninja = ['小黑','阿力'];
+        let [a,b] = ninja
+        console.log(a,b);
+
+        // 对象解构
+        //对象解构根据对象的key解构
+        let student = {
+        username: 'angela', 
+        gender: '女',
+        play: function() {
+            console.log('正在玩游戏');
+                }
+        }
+        // let username = student.username
+        // let gender = student.gender
+        // let play = student.play_
+        let {username, gender, play} = student
+        console.log(username);
+        console.log(gender);
+        play();
+
+        let ninjas = {
+            username1:'小黑',
+            gender1:'boy',
+            play1(){
+                console.log('小黑yyds');
+            }
+        }
+
+        let {username1,gender1,play1} = ninjas
+        console.log(username1);
+        console.log(gender1);
+        play1()
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<script>
+    const qqMusic = {
+        playerName: 'QQ音乐',
+        song_list: [
+            '淋雨一直走',
+            '七里香',
+            '演员'
+        ],
+
+        // 增加迭代器功能
+        [Symbol.iterator](){
+            // 迭代器必须返回一个对象
+            let index = 0
+            let _this = this
+            return {
+                // 对象里面需要写一个next方法
+                next(){
+                    // 返回一个对象
+                    // done:false 还会继续下一次next
+                    // done:true    结束当前迭代器
+                    if(index < _this.song_list.length){
+                        let result = {
+                            value:_this.song_list[index],done:false
+                        }
+                        index++
+                        return result
+                    }else{
+                        return {value:undefined,done:true}
+                    }
+                }
+            }
+        }
+    }
+    console.log(qqMusic);
+    for (const value of qqMusic) {
+        console.log(value);
+    }
+
+</script>

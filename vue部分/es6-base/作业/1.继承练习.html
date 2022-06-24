@@ -1,0 +1,71 @@
+<script>
+    class Car{
+        constructor(_brand,_num,_color){
+            this.brand = _brand;
+            this.num = _num;
+            this.color = _color
+        }
+        // 踩油门
+        gas(){
+            console.log(`${this.brand}踩油门了`);
+        }
+        // 刹车
+        brake(){
+            console.log(`${this.brand}刹车了`);
+        }
+        // 挂挡
+        gear(){
+            console.log(`${this.brand}挂档了`);
+        }
+        // 发车
+        start(){
+            console.log(`${this.brand}发车了`);
+        }
+    }
+    var car = new Car('车',4,'红色');
+    console.log(car);
+    car.gas();
+    car.brake();
+    car.gear();
+    car.start();
+
+    // 公交车
+    class Bus extends Car{
+        constructor(_brand,_num,_color,_hammer,_seat,_handrail){
+            super(_brand,_num,_color);
+            this.hammer = _hammer;
+            this.seat = _seat;
+            this.handrail = _handrail;
+        }
+        station(){
+            console.log(`${this.brand}报站啦`);
+        }
+    }
+    var bus = new Bus('7路公交车',4,'绿色','逃生锤','老人座椅','扶手');
+    console.log(bus);
+    bus.gas();
+    bus.brake();
+    bus.gear();
+    bus.start();
+    bus.station();
+
+    // 汽车
+    class Taxi extends Car{
+        constructor(_brand,_num,_color,_printer,_lamp){
+            super(_brand,_num,_color);
+            this.printer = _printer;
+            this.lamp = _lamp;
+        }
+        money(){
+            console.log(`${this.brand}开了${this.printer},并且打开了${this.lamp}`);
+        }
+    }
+    var taxi = new Taxi('汽车',4,'红色','打标器','出租车内的灯');
+    console.log(taxi);
+    taxi.gas();
+    taxi.brake();
+    taxi.gear();
+    taxi.start();
+    taxi.money();
+
+</script>
